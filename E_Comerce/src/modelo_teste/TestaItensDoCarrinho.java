@@ -15,10 +15,10 @@ public class TestaItensDoCarrinho {
 		
 	//Verificar pelo código se tem desconto
 	
-	/*@Test
+	@Test
 	public void testaQuantidadeDeProdutos() {
 		fail("Not yet implemented");
-	}*/
+	}
 	
 	
 	@Test
@@ -52,9 +52,9 @@ public class TestaItensDoCarrinho {
 		
 	}
 	
-	/*@Test
+	@Test
 	public void testaDesconto() {
 		fail("Not yet implemented");
-	}*/
+	}
 
 }

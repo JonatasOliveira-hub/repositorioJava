@@ -9,7 +9,7 @@ import modelo_principal.Produtos;
 
 public class TestaProdutos {
 
-	/*@Test
+	@Test
 	public void testarNomedoProduto() {
 		
 		String nome = "banana";
@@ -20,7 +20,7 @@ public class TestaProdutos {
 		
 	}
 	
-	/*@Test
+	@Test
 	public void testarCodigodoProduto() {
 		
 		String cod = "48654asd";
@@ -29,7 +29,7 @@ public class TestaProdutos {
 		
 		boolean atual = produto.validaCodigo(cod);
 		assertEquals(esperado, atual);		
-	}*/
+	}
 	
 	@Test
 	public void testarPrecodoProduto() {
