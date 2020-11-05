@@ -15,32 +15,17 @@ public class TestaItensDoCarrinho {
 		
 	//Verificar pelo código se tem desconto
 	
-	@Test
+	/*@Test
 	public void testaQuantidadeDeProdutos() {
 		fail("Not yet implemented");
-	}
+	}*/
 	
 	
 	@Test
 	public void testaAdicionarProdutos() {
 		//Preparação
-		int quantidade = 2;
+		int quantidade = 1;
 		Produtos prod = new Produtos();
-		boolean resp = prod.validaCodigo("4862");
-		
-		if(resp == true) {
-			prod.setCodigo("4862");
-		}
-		String banana = "azul";
-		String resp1 = prod.validaNome(banana);
-		if(resp1.equals(banana)) {
-			prod.setNome(banana);
-		}
-		
-		Double preco = 14.45;
-		if(prod.validapreco(preco).equals(preco)) {
-			prod.setPreco(preco);
-		}
 		
 		//Requisição
 		ItensDoCarrinho item = new ItensDoCarrinho();
@@ -54,7 +39,9 @@ public class TestaItensDoCarrinho {
 	
 	@Test
 	public void testaDesconto() {
-		fail("Not yet implemented");
+		int cupom = 789;
+		ItensDoCarrinho itens = new ItensDoCarrinho();
+		//Double desconto = itens.aplicaDesconto(cupom, );
 	}
 
 }

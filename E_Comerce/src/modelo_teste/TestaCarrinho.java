@@ -8,15 +8,15 @@ import org.junit.Test;
 
 import modelo_principal.Carrinho;
 import modelo_principal.ItensDoCarrinho;
+import modelo_principal.Produtos;
 
 public class TestaCarrinho {
 
-	/*@Test
+	@Test
 	public void testaCarrinho() {
 		ItensDoCarrinho item = new ItensDoCarrinho();
-		item.setCodigo("4654klj");
-		item.setNome("");
-		item.setPreco(-0.1);
+		//Produtos prod = new Produtos();
+		//item.AdicionaItem(2, prod.ge);
 		
 		ArrayList<ItensDoCarrinho> itens = new ArrayList<ItensDoCarrinho>();
 		itens.add(item);
@@ -36,5 +36,5 @@ public class TestaCarrinho {
 		assertEquals(esperado, atual);
 		
 		
-	}*/
+	}
 }

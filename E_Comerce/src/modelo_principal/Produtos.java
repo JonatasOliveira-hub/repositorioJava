@@ -8,29 +8,29 @@ import java.util.regex.Pattern;
  */
 public class Produtos {
 
-	private String codigo;//codigo do produto
-	private String nome;//nome do produto
-	private double preco;//preço unitario do produto
+	final private String codigo = "48654";//codigo do produto
+	final private String nome ="banana";//nome do produto
+	final private double preco = 1;//preço unitario do produto
 	
 	
 	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(String codigo) {
+	/*public void setCodigo(String codigo) {
 		this.codigo = codigo;
-	}
+	}*/
 	public String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
+	/*public void setNome(String nome) {
 		this.nome = nome;
-	}
+	}*/
 	public double getPreco() {
 		return preco;
 	}
-	public void setPreco(double preco) {
+	/*public void setPreco(double preco) {
 		this.preco = preco;
-	}
+	}*/
 	
 	//Nomes inválidos não serão aceitos
 	public String validaNome(String nome) {

@@ -63,4 +63,8 @@ public class ItensDoCarrinho {
 	//Verificar a quantidade de produtos
 	
 	//Verificar pelo código se tem desconto
+	public Double aplicaDesconto(int cupom) {
+		return desconto;
+		
+	}
 }

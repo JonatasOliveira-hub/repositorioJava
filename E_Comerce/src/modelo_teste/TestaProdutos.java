@@ -12,31 +12,30 @@ public class TestaProdutos {
 	@Test
 	public void testarNomedoProduto() {
 		
-		String nome = "banana";
 		Produtos produto = new Produtos();
-		String resp = produto.validaNome(nome);
-		assertEquals(nome, resp);
-		System.out.println("Resposta: " + resp);
+		String resp = produto.validaNome(produto.getNome());
+		String esperado = produto.getNome();
+		assertEquals(esperado, resp);
 		
 	}
 	
 	@Test
 	public void testarCodigodoProduto() {
 		
-		String cod = "48654asd";
 		Produtos produto = new Produtos();
 		boolean esperado = true;
 		
-		boolean atual = produto.validaCodigo(cod);
+		boolean atual = produto.validaCodigo(produto.getCodigo());
 		assertEquals(esperado, atual);		
 	}
 	
 	@Test
 	public void testarPrecodoProduto() {
-		Double valor = -0.1;
+		
 		Produtos produto = new Produtos();
-		Double atual = produto.validapreco(valor);
-		assertEquals(valor, atual); 
+		Double atual = produto.validapreco(produto.getPreco());
+		Double esperado = produto.getPreco();
+		assertEquals(esperado, atual); 
 	}
 	
 	
