@@ -15,13 +15,22 @@ public class TestaItensDoCarrinho {
 		
 	//Verificar pelo código se tem desconto
 	
-	/*@Test
-	public void testaQuantidadeDeProdutos() {
-		fail("Not yet implemented");
-	}*/
-	
-	
 	@Test
+	public void testaQuantidadeDeProdutos() {
+	
+		//Preparação
+		int quantosProdutos = -1;
+		ItensDoCarrinho itens = new ItensDoCarrinho();
+		
+		//Requisição
+		itens.quantidadeDeItens(quantosProdutos);
+		
+		//Validação
+		assertEquals(itens.getQuantidadeDeProdutos(), quantosProdutos);
+	}
+	
+	
+	/*@Test
 	public void testaAdicionarProdutos() {
 		//Preparação
 		int quantidade = 1;
@@ -39,9 +48,17 @@ public class TestaItensDoCarrinho {
 	
 	@Test
 	public void testaDesconto() {
+		
+		//preparação
 		int cupom = 789;
 		ItensDoCarrinho itens = new ItensDoCarrinho();
-		//Double desconto = itens.aplicaDesconto(cupom, );
-	}
+		
+		//Requisição
+		Double valorNovodoProduto = itens.aplicaDesconto(cupom);
+				
+		//Validação
+		System.out.println("Valor do produto como o deconto: " + valorNovodoProduto);
+		assertEquals(valorNovodoProduto, valorNovodoProduto);
+	}*/
 
 }

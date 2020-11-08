@@ -10,7 +10,7 @@ public class Produtos {
 
 	final private String codigo = "48654";//codigo do produto
 	final private String nome ="banana";//nome do produto
-	final private double preco = 1;//preço unitario do produto
+	final private double preco = 10.00;//preço unitario do produto
 	
 	
 	public String getCodigo() {

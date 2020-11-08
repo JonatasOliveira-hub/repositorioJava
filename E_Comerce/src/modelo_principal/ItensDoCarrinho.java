@@ -61,10 +61,28 @@ public class ItensDoCarrinho {
 	
 		
 	//Verificar a quantidade de produtos
+	public int quantidadeDeItens(int quantidade) {
+		if(quantidade <= 0) {
+			throw new Error("Quantidade de itens não pode ser menor ou igual a zero");
+		}else
+		{
+			return this.quantidadeDeProdutos = quantidade;
+		}
+	}
 	
 	//Verificar pelo código se tem desconto
 	public Double aplicaDesconto(int cupom) {
-		return desconto;
+		int cupomexiste = 789;
+		double novoValor = 0.00;
+		Produtos prod = new Produtos();
+		
+		if(cupomexiste == cupom) {
+			int valordoDesconto = 1;
+			novoValor = prod.getPreco() - valordoDesconto;
+		}
+		
+		return novoValor;
+		
 		
 	}
 }
