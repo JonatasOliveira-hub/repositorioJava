@@ -19,7 +19,7 @@ public class TestaItensDoCarrinho {
 	public void testaQuantidadeDeProdutos() {
 	
 		//Preparação
-		int quantosProdutos = -1;
+		int quantosProdutos = 2;
 		ItensDoCarrinho itens = new ItensDoCarrinho();
 		
 		//Requisição
@@ -30,10 +30,10 @@ public class TestaItensDoCarrinho {
 	}
 	
 	
-	/*@Test
+	@Test
 	public void testaAdicionarProdutos() {
 		//Preparação
-		int quantidade = 1;
+		int quantidade = 2;
 		Produtos prod = new Produtos();
 		
 		//Requisição
@@ -59,6 +59,6 @@ public class TestaItensDoCarrinho {
 		//Validação
 		System.out.println("Valor do produto como o deconto: " + valorNovodoProduto);
 		assertEquals(valorNovodoProduto, valorNovodoProduto);
-	}*/
+	}
 
 }

@@ -14,18 +14,37 @@ public class TestaCarrinho {
 
 	@Test
 	public void testaCarrinho() {
+		
+		//Preparação
+		Produtos prod = new Produtos();
 		ItensDoCarrinho item = new ItensDoCarrinho();
-		//Produtos prod = new Produtos();
-		//item.AdicionaItem(2, prod.ge);
+		Carrinho car = new Carrinho();
+		
+		
+		item.setProduto(prod);
+		System.out.println(item.getProduto());
+		System.out.println(item.getDesconto());
+		System.out.println(item.getQuantidadeDeProdutos());
 		
 		ArrayList<ItensDoCarrinho> itens = new ArrayList<ItensDoCarrinho>();
 		itens.add(item);
 		
-		Carrinho car = new Carrinho();
+		
 		car.setItens(itens);
+		
+		
+		
+		for(ItensDoCarrinho ic : car.getItens()) {
+			System.out.println("ver o que tem aqui : " + ic);
+		}
+		
+		
+		//tem que dar 2 bananas, ou seja, 20 reais 
+		//O conteudo descrito acima, serve para instanciar os objetos e recuperar os valores unitarios
+		
 	}
 
-	@Test
+	/*@Test
 	public void testarCepCarrinho() {
 		String cep = "26.582.030";
 		
@@ -36,5 +55,5 @@ public class TestaCarrinho {
 		assertEquals(esperado, atual);
 		
 		
-	}
+	}*/
 }

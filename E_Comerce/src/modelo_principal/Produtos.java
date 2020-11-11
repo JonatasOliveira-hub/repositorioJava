@@ -72,6 +72,12 @@ public class Produtos {
 			return valor;
 		}
 	}
+	@Override
+	public String toString() {
+		return "Produtos [codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + "]";
+	}
+	
+	
 	
 	
 }
