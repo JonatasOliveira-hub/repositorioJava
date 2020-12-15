@@ -53,7 +53,18 @@ public class Carrinho {
 		}
 		return frete;
 	}
-	
+
+	public double somaPreco(List<ItensDoCarrinho> itens) {
+		double soma = 0;
+		for(int i=0;i<itens.size();i++) {
+			
+			soma = itens.get(i).getProduto().getPreco() * 
+					itens.get(i).getQuantidadeDeProdutos();
+		}
+		
+		
+		return soma;
+	}
 
 	//método de calcular a soma dos itens do carrinho e setar eles como estaticos a menos que um item seja adicionado um novo item, o que gera um novo calculo
 }

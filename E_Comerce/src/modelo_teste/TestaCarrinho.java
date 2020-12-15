@@ -13,38 +13,28 @@ import modelo_principal.Produtos;
 public class TestaCarrinho {
 
 	@Test
-	public void testaCarrinho() {
+	public void testaAdicionaItemAoCarrinho() { 
 		
 		//Preparação
 		Produtos prod = new Produtos();
 		ItensDoCarrinho item = new ItensDoCarrinho();
 		Carrinho car = new Carrinho();
-		
-		
+				
 		item.setProduto(prod);
-		System.out.println(item.getProduto());
-		System.out.println(item.getDesconto());
-		System.out.println(item.getQuantidadeDeProdutos());
 		
 		ArrayList<ItensDoCarrinho> itens = new ArrayList<ItensDoCarrinho>();
 		itens.add(item);
 		
-		
+		//item adicionado ao carrinho - requisição
 		car.setItens(itens);
 		
-		
-		
-		for(ItensDoCarrinho ic : car.getItens()) {
-			System.out.println("ver o que tem aqui : " + ic);
+		//validação
+		for(int i=0; i<car.getItens().size();i++) {
+		assertEquals(item.getQuantidadeDeProdutos(), car.getItens().get(i).getQuantidadeDeProdutos());
 		}
-		
-		
-		//tem que dar 2 bananas, ou seja, 20 reais 
-		//O conteudo descrito acima, serve para instanciar os objetos e recuperar os valores unitarios
-		
 	}
 
-	/*@Test
+	@Test
 	public void testarCepCarrinho() {
 		String cep = "26.582.030";
 		
@@ -55,5 +45,47 @@ public class TestaCarrinho {
 		assertEquals(esperado, atual);
 		
 		
-	}*/
+	}
+	
+	@Test
+	public void testaValorTotal() {
+		//Preparação
+		Produtos prod = new Produtos();
+		ItensDoCarrinho item = new ItensDoCarrinho();
+		Carrinho car = new Carrinho();
+						
+		item.setProduto(prod);
+			
+		ArrayList<ItensDoCarrinho> itens = new ArrayList<ItensDoCarrinho>();
+		itens.add(item);
+				
+		
+		car.setItens(itens);
+		/*
+		System.out.println(item.getProduto());
+		System.out.println(item.getDesconto());
+		System.out.println(item.getQuantidadeDeProdutos());
+		for(ItensDoCarrinho ic : car.getItens()) {
+			System.out.println("ver o que tem aqui : " + ic);
+		}
+		for(ItensDoCarrinho ic : car.getItens()) {
+			System.out.println("ver o que tem aqui : " + ic);
+		}
+		*/
+		
+		
+		//tem que dar 2 bananas, ou seja, 20 reais 
+		//O conteudo descrito acima, serve para instanciar os objetos e recuperar os valores unitarios
+		
+		
+		//requisição
+		Double resultado = car.somaPreco(itens);
+		System.out.println(resultado);
+		
+		//item.getProduto().getPreco();
+		
+		//validação
+		
+		
+	}
 }
