@@ -49,14 +49,27 @@ public class ReservaCarro {
 
 
 
-	public String reservaCarro(double idCarrro) {
+	public String reservaCarro(Carro car) {
 		String resp = "Erro durante o processo de reserva";
-		if(idCarrro==789) {
+		if(car.getId()==789 && car.getStatus()=="Livre") {
 			resp = "Carro reservado";
 		}
 		
 		return resp;
 		}
+	
+	public String verificaPeriodo(int periodo) {
+		String resp = "Erro durante o processo de reserva";
+		if(periodo <= 0) {
+		throw new IllegalArgumentException();
+			
+		}else {
+			if(periodo >= 30) {
+				resp = "Perido ok";
+			}
+		}
+		return resp;
+	}
 	
 	
 }

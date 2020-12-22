@@ -6,7 +6,7 @@ public class Carro {
 	private String cor;
 	private double preco;
 	private String modelo;
-	private String status;
+	private String status;//Livre, reservado, alugado, em manutenção
 	
 	
 	
@@ -15,15 +15,11 @@ public class Carro {
 		this.id = id;
 	}
 	
-	
-	public Carro(double id, String cor, double preco, String modelo) {
+	public Carro(double id, String status) {
 		super();
 		this.id = id;
-		this.cor = cor;
-		this.preco = preco;
-		this.modelo = modelo;
+		this.status = status;
 	}
-
 
 	public double getId() {
 		return id;
