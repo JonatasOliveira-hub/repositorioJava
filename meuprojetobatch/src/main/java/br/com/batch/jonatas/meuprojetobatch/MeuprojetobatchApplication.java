@@ -33,7 +33,7 @@ public class MeuprojetobatchApplication {
 		return fabricaStep.get("step1").tasklet(new Tasklet() {
 			@Override
 			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-				System.out.println("Hello, World!");
+				System.out.println("Hello, World! Teste da chaves");
 				return RepeatStatus.FINISHED;
 			}
 		}).build();
