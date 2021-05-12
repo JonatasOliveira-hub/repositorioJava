@@ -11,9 +11,9 @@ public class GravarDadosAeronave extends JdbcBatchItemWriter<Aeronave> {
 
 	private static final String SQL_COMMAND =
 		      "INSERT INTO aeronave (record_key, iata_codigo, icao_codigo, nome) " +
-		          "VALUES (:recordKey, :iataCodigo, :icaoCodigo, :nome) " +
-		          "ON DUPLICATE KEY " +
-		          "UPDATE iata_codigo = :iataCodigo, icao_codigo = :icaoCodigo, nome = :nome";
+		          "VALUES (:recordKey, :iataCodigo, :icaoCodigo, :nome) ";
+		      //    "ON DUPLICATE KEY " +
+		        //  "UPDATE iata_codigo = :iataCodigo, icao_codigo = :icaoCodigo, nome = :nome";
 	
 	
 	public GravarDadosAeronave(DataSource dataSource) {

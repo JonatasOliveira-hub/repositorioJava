@@ -9,7 +9,8 @@ import io.micrometer.core.instrument.util.StringUtils;
 @Component
 public class ProcessaItemAeronave implements ItemProcessor<Aeronave, Aeronave> {
 
-	public Aeronave processa(final Aeronave aer) {
+	@Override
+	public Aeronave process(final Aeronave aer) {
 		String recordKey = !StringUtils.isEmpty(aer.getIataCodigo()) ? aer.getIataCodigo() : aer.getIcaoCodigo();
 		if (StringUtils.isEmpty(recordKey)) {
 			return null;
@@ -19,11 +20,5 @@ public class ProcessaItemAeronave implements ItemProcessor<Aeronave, Aeronave> {
 			aer.setIcaoCodigo(Optional.ofNullable(aer.getIcaoCodigo()).map(String::toUpperCase).orElse(null));
 			return aer;
 		}
-	}
-	
-	@Override
-	public Aeronave process(Aeronave item) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }
