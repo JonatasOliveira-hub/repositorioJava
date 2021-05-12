@@ -16,7 +16,6 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableBatchProcessing
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class, XADataSourceAutoConfiguration.class})
 public class LerArquivoCsvApplication {
 
 	 @Autowired
@@ -41,7 +40,7 @@ public class LerArquivoCsvApplication {
 	@Bean("aeronaveStep")
 	  public Step criarAeronaveStep(ProcessaItemAeronave processa, LerArquivo leArquivo, GravarDadosAeronave escreve) {
 	    return fabricaStep.get("aeronaveStep")
-	        .<Aeronave, Aeronave>chunk(3).reader(leArquivo)
+	        .<Aeronave, Aeronave>chunk(10).reader(leArquivo)
 	        .processor(processa)
 	        .writer(escreve)
 	        .build();

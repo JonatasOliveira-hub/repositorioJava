@@ -14,6 +14,6 @@ public class LerArquivo extends FlatFileItemReader<Aeronave>{
 	    linhaMapeada.setLineTokenizer(new DelimitedLineTokenizer());
 	    linhaMapeada.setFieldSetMapper(new AeronaveMapeamento());
 	    this.setLineMapper(linhaMapeada);
-	    this.setResource(new ClassPathResource("Naves.csv"));
+	    this.setResource(new ClassPathResource("Naves.dat"));
 	  }
 }
