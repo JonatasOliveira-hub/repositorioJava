@@ -1,25 +1,15 @@
 package br.com.batch.jonatas.meuprojetobatch;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.impl.DefaultCamelContext;
+import org.springframework.stereotype.Component;
 
-public class ApacheCamelPrincipal {
-
-	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-
-		CamelContext camelContext = new DefaultCamelContext();
-        camelContext.addRoutes(new RouteBuilder() {
+@Component
+public class ApacheCamelPrincipal extends RouteBuilder  {
+			//O método configure, permite fazer tranformações além de setar as rotas. 
+			//Pelo fato da classe está como component, ele vira um Bean, que vai para a classe principal.
+        	@Override
             public void configure() throws Exception {
-                from("file:C:\\Users\\Desktop\\Documents\\Teste?noop=true").
-                        to("file:C:\\\\Users\\\\Desktop\\\\Documents");
+                from("file:C:\\Users\\Desktop\\Documents\\Teste?noop=true").to("file:C:\\Users\\Desktop\\Documents");
             }
-        });
+        }
 
-        camelContext.start();
-        Thread.sleep(5000);
-        camelContext.stop();
-	}
-
-}

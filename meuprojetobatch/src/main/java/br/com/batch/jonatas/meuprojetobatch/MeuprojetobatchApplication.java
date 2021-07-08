@@ -30,12 +30,10 @@ public class MeuprojetobatchApplication {
 
 	@Bean
 	public Step step() {
-		return fabricaStep.get("step1").tasklet(new Tasklet() {
+		return fabricaStep.get("step2").tasklet(new Tasklet() {
 			@Override
 			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-				System.out.println("Hello, World! Teste da chaveves");
-				//ApacheCamelPrincipal camelPrincipal = new ApacheCamelPrincipal();
-				//camelPrincipal.configure();
+				System.out.println("Hello, World! Teste do novo nome de step");
 				return RepeatStatus.FINISHED;
 			}
 		}).build();
