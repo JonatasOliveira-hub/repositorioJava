@@ -2,6 +2,8 @@ package com.algaworks.logistica.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.algaworks.logistica.domain.model.Cliente;
 import com.algaworks.logistica.domain.repository.RepositorioCliente;
+import com.algaworks.logistica.domain.service.CatalogoClienteServico;
 
 @RestController
 @RequestMapping("/clientes")
@@ -25,6 +28,9 @@ public class ClienteController {
 	@Autowired
 	private RepositorioCliente repositorioCliente;
 
+	@Autowired
+	private CatalogoClienteServico calatogoCliente;
+	
 	@GetMapping
 	public List<Cliente> findAll() {
 		return repositorioCliente.findAll();
@@ -45,13 +51,13 @@ public class ClienteController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Cliente adicionar(@RequestBody Cliente cliente) {
+	public Cliente adicionar(@Valid @RequestBody Cliente cliente) {
 
-		return repositorioCliente.save(cliente);
+		return calatogoCliente.salvar(cliente);
 	}
 
 	@PutMapping("/{clienteId}")
-	public ResponseEntity<Cliente> atualizar(@PathVariable Long clienteId,
+	public ResponseEntity<Cliente> atualizar(@Valid @PathVariable Long clienteId,
 			@RequestBody Cliente cliente) {
 
 		if (!repositorioCliente.existsById(clienteId)) {
@@ -59,7 +65,7 @@ public class ClienteController {
 		}
 		
 		cliente.setId(clienteId);
-		cliente = repositorioCliente.save(cliente);
+		cliente = calatogoCliente.salvar(cliente);
 		return ResponseEntity.ok(cliente);
 	}
 	
@@ -69,7 +75,7 @@ public class ClienteController {
 			return ResponseEntity.notFound().build();
 		}
 		
-		repositorioCliente.deleteById(clienteId);
+		calatogoCliente.excluir(clienteId);
 		return ResponseEntity.noContent().build();
 	}
 }
