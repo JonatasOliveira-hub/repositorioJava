@@ -9,11 +9,16 @@ import org.apache.camel.component.spring.batch.support.CamelItemReader;
 import org.apache.camel.component.spring.batch.support.CamelItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+//import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+@Component
+@Service
 public class LeituraeEscrita {
-
+	
 	@Autowired
-	CamelContext camelContext;
+	private CamelContext camelContext;
 	
 	@Bean
 	public CamelItemWriter<File> customerCamelWriter() {
