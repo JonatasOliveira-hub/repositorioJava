@@ -6,10 +6,6 @@ package com.pjs.livraria.livraria.service;
  * abaixo.*/
 public interface ServiceGerente {
 
-	void registrarCliente();
-
-	void realizarVenda();
-
 	void contatarFornecedor();
 
 	void verificarLivro();
