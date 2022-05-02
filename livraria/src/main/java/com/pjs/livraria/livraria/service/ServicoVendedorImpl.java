@@ -7,17 +7,15 @@ import com.pjs.livraria.livraria.model.Cliente;
 import com.pjs.livraria.livraria.repository.RepositorioVendedor;
 
 @Service
-public class ServicoVendedorImpl implements ServiceVendedor {
+public class ServicoVendedorImpl implements ServicoVendedor {
 
-	//Como que isso ta sendo injetado aqui, sem que a interface esteja anotada?
 	@Autowired
 	private RepositorioVendedor repositorioVendedor;
-	
+
 	@Override
-	public Cliente registrarCliente(Cliente cliente) {
-		
+	public Cliente salvar(Cliente cliente) {
+
 		return repositorioVendedor.save(cliente);
 	}
-	
-	
+
 }

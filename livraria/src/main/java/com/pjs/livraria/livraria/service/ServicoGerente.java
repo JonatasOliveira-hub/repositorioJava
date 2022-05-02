@@ -4,7 +4,7 @@ package com.pjs.livraria.livraria.service;
  * e não precisamos de todos na aplicação. Com isso, como é
  * um CRUD, vamos utilizar somente esses que estão aqui descritos
  * abaixo.*/
-public interface ServiceGerente {
+public interface ServicoGerente {
 
 	void contatarFornecedor();
 

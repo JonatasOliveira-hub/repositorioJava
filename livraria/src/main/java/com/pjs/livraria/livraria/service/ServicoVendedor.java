@@ -6,8 +6,8 @@ import com.pjs.livraria.livraria.model.Cliente;
  * e não precisamos de todos na aplicação. Com isso, como é
  * um CRUD, vamos utilizar somente esses que estão aqui descritos
  * abaixo.*/
-public interface ServiceVendedor {
+public interface ServicoVendedor {
 
-	Cliente registrarCliente(Cliente cliente);
+	Cliente salvar(Cliente cliente);
 	
 }
