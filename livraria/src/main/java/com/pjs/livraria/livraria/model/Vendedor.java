@@ -10,7 +10,7 @@ public class Vendedor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+	private Long idVendedor;
 
 	private String nome;
 
@@ -26,12 +26,12 @@ public class Vendedor {
 		this.nome = nome;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getIdVendedor() {
+		return idVendedor;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdVendedor(Long id) {
+		this.idVendedor = id;
 	}
 
 	public Double getSalario() {

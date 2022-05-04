@@ -4,18 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pjs.livraria.livraria.model.Cliente;
-import com.pjs.livraria.livraria.repository.RepositorioVendedor;
+import com.pjs.livraria.livraria.repository.RepositorioFuncionario;
 
 @Service
 public class ServicoVendedorImpl implements ServicoVendedor {
 
 	@Autowired
-	private RepositorioVendedor repositorioVendedor;
+	private RepositorioFuncionario repositorioFuncionario;
 
 	@Override
-	public Cliente salvar(Cliente cliente) {
-
-		return repositorioVendedor.save(cliente);
+	public Cliente registrarCliente(Cliente cliente) {
+		return repositorioFuncionario.save(cliente);
 	}
 
+	
 }

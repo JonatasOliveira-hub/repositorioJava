@@ -8,6 +8,6 @@ import com.pjs.livraria.livraria.model.Cliente;
  * abaixo.*/
 public interface ServicoVendedor {
 
-	Cliente salvar(Cliente cliente);
-	
+	Cliente registrarCliente(Cliente vendedor);
+
 }
