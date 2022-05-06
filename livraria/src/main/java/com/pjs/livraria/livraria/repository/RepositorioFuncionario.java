@@ -11,7 +11,7 @@ import com.pjs.livraria.livraria.model.Cliente;
  * 
  * 
  * O repositório de Funcionário, gerencia um cliente, executando o método 
- * registrarCliente. */
+ * registrarCliente da classe ServicoVendedor e ServicoGerente. */
 public interface RepositorioFuncionario extends JpaRepository<Cliente, Long>{
 	
 }
