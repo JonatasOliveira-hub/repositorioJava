@@ -1,11 +1,15 @@
 package com.pjs.livraria.livraria.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pjs.livraria.livraria.model.Cliente;
+import com.pjs.livraria.livraria.model.Livro;
 import com.pjs.livraria.livraria.repository.RepositorioFuncionario;
 import com.pjs.livraria.livraria.repository.RepositorioGerente;
+import com.pjs.livraria.livraria.repository.RepositorioLivro;
 
 @Service
 public class ServicoGerenteImpl implements ServicoGerente {
@@ -16,16 +20,23 @@ public class ServicoGerenteImpl implements ServicoGerente {
 	@Autowired
 	private RepositorioGerente repositorioGerente;
 
+	@Autowired
+	private RepositorioLivro repositorioLivro;
+
 	@Override
-	public Cliente registrarCliente(Cliente vendedor) {
-		// TODO Auto-generated method stub
-		return null;
+	public Cliente registrarCliente(Cliente cliente) {
+		return repositorioFuncionario.save(cliente);
 	}
 
 	@Override
-	public void contatarFornecedor() {
-		// TODO Auto-generated method stub
+	public Livro contatarFornecedor(Livro livro) {
+		// Retorna o livro pelo ID
+		Optional<Livro> retorno = repositorioLivro.findById(livro.getCodLivro());
 
+		if (retorno.get().getQuantidade() < 3) {
+			encomendarLivros(livro);
+		}
+		return livro;
 	}
 
 	@Override
@@ -47,8 +58,7 @@ public class ServicoGerenteImpl implements ServicoGerente {
 	}
 
 	@Override
-	public void encomendarLivros() {
-		// TODO Auto-generated method stub
-
+	public void encomendarLivros(Livro livro) {
+		repositorioLivro.save(livro);
 	}
 }

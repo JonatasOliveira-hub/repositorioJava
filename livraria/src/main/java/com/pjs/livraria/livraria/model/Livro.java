@@ -18,7 +18,7 @@ public class Livro {
 	
 	private String editora;
 	
-	private String quantidade;
+	private Long quantidade;
 	
 	private int codDeBarras;
 
@@ -54,11 +54,11 @@ public class Livro {
 		this.editora = editora;
 	}
 
-	public String getQuantidade() {
+	public Long getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(String quantidade) {
+	public void setQuantidade(Long quantidade) {
 		this.quantidade = quantidade;
 	}
 
