@@ -41,7 +41,9 @@ public class ServicoGerenteImpl implements ServicoGerente {
 
 	@Override
 	public void verificarLivro() {
-		// TODO Auto-generated method stub
+
+		System.out.println("Verificando Livro...");
+		System.out.println("Livro trocado.");
 
 	}
 

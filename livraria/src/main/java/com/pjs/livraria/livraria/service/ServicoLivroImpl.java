@@ -3,40 +3,42 @@ package com.pjs.livraria.livraria.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.pjs.livraria.livraria.model.Livro;
+import com.pjs.livraria.livraria.repository.RepositorioLivro;
 
 public class ServicoLivroImpl implements ServicoLivro {
 
+	@Autowired
+	private RepositorioLivro repositorioLivro;
+
 	@Override
 	public List<Livro> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return repositorioLivro.findAll();
 	}
 
 	@Override
 	public Optional<Livro> consultarLivroById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return repositorioLivro.findById(id);
 	}
 
 	@Override
 	public Livro inserirLivro(Livro livro) {
-		// TODO Auto-generated method stub
-		return null;
+		return repositorioLivro.save(livro);
 	}
 
 	@Override
 	public Livro alterarLivro(Livro livro) {
-		// TODO Auto-generated method stub
-		return null;
+		return repositorioLivro.save(livro);
 	}
 
 	@Override
 	public void excluirLivroPorId(Long id) {
-		// TODO Auto-generated method stub
-		
+		repositorioLivro.deleteById(id);
+
 	}
-	
-	
 
 }
