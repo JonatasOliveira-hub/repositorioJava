@@ -1,12 +1,19 @@
 package com.pjs.livraria.livraria.service;
 
+import java.util.List;
+import java.util.Optional;
+
+import com.pjs.livraria.livraria.model.Fornecedor;
+
 public interface ServicoFornecedor {
 
-	void consultarFornecedor();
+	List<Fornecedor> consultarFornecedor();
 	
-	void excluirFornecedor();
+	Optional<Fornecedor> consultarFornecedorById(Long id);
 	
-	void alterarFornecedor();
+	void excluirFornecedor(Long id);
 	
-	void inserirFornecedor();
+	Fornecedor alterarFornecedor(Fornecedor fornecedor);
+	
+	Fornecedor inserirFornecedor(Fornecedor fornecedor);
 }
