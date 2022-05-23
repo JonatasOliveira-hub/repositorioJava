@@ -40,17 +40,21 @@ public class ServicoGerenteImpl implements ServicoGerente {
 	}
 
 	@Override
-	public void verificarLivro() {
-
-		System.out.println("Verificando Livro...");
-		System.out.println("Livro trocado.");
+	public String verificarLivro(Livro livro) {
+		System.out.println("Verificando livro...");
+		String troca = null;
+		if (livro.isDefeito()) {
+			realizarTrocaDeLivros();
+			return troca = "Livro trocado";
+		} else {
+			return troca = "Livro não apresenta defeito.";
+		}
 
 	}
 
 	@Override
 	public void realizarTrocaDeLivros() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Livro trocado.");
 	}
 
 	@Override
@@ -63,4 +67,5 @@ public class ServicoGerenteImpl implements ServicoGerente {
 	public void encomendarLivros(Livro livro) {
 		repositorioLivro.save(livro);
 	}
+
 }

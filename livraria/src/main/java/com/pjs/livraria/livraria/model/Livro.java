@@ -7,20 +7,24 @@ import javax.persistence.Id;
 
 @Entity
 public class Livro {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long codLivro;
 
 	private String nomeLivro;
-	
+
 	private String nomeAutor;
-	
+
 	private String editora;
-	
+
 	private Long quantidade;
-	
+
 	private int codDeBarras;
+
+	private boolean defeito;
+
+	private Long precoLivro;
 
 	public Long getCodLivro() {
 		return codLivro;
@@ -69,4 +73,21 @@ public class Livro {
 	public void setCodDeBarras(int codDeBarras) {
 		this.codDeBarras = codDeBarras;
 	}
+
+	public boolean isDefeito() {
+		return defeito;
+	}
+
+	public void setDefeito(boolean defeito) {
+		this.defeito = defeito;
+	}
+
+	public Long getPrecoLivro() {
+		return precoLivro;
+	}
+
+	public void setPrecoLivro(Long precoLivro) {
+		this.precoLivro = precoLivro;
+	}
+
 }

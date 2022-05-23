@@ -13,7 +13,7 @@ public interface ServicoGerente {
 
 	Livro contatarFornecedor(Livro livro);
 
-	void verificarLivro();
+	String verificarLivro(Livro livro);
 
 	void realizarTrocaDeLivros();
 
