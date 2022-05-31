@@ -14,6 +14,8 @@ public class ServicoPedidoClienteImpl implements ServicoPedidoCliente {
 	@Override
 	public void pagamentoCliente() {
 
+		System.out.println("Pagamento Efetuado");
+		System.out.println("Pagamento Aprovado!");
 		
 	}
 
