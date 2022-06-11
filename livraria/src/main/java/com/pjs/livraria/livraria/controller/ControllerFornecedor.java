@@ -25,7 +25,6 @@ public class ControllerFornecedor {
 	@Autowired
 	private ServicoFornecedor servicoFornecedor;
 
-
 	@GetMapping
 	public ResponseEntity<List<Fornecedor>> consultarFornecedor() {
 		return ResponseEntity.status(HttpStatus.OK).body(servicoFornecedor.consultarFornecedor());
@@ -50,8 +49,8 @@ public class ControllerFornecedor {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Fornecedor> inserirFornecedor(@RequestBody Fornecedor fornecedo) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(servicoFornecedor.inserirFornecedor(fornecedo));
+	public ResponseEntity<Fornecedor> inserirFornecedor(@RequestBody Fornecedor fornecedor) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(servicoFornecedor.inserirFornecedor(fornecedor));
 	}
 
 	

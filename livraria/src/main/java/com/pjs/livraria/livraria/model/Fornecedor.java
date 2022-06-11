@@ -1,5 +1,6 @@
 package com.pjs.livraria.livraria.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,7 @@ public class Fornecedor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long codFornecedor;
+	@Column(name = "nome_fantasia")
 	private String nomeFantasia;
 	private int cnpj;
 	

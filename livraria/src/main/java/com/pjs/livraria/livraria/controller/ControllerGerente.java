@@ -21,11 +21,13 @@ public class ControllerGerente {
 	@Autowired
 	private ServicoGerente servicoGerente;
 
+	@RequestMapping("registrarCliente")
 	@PostMapping
 	public ResponseEntity<Cliente> registrarCliente(@RequestBody Cliente cliente) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(servicoGerente.registrarCliente(cliente));
 	}
-
+	
+	@RequestMapping("contatarFornecedor")
 	@GetMapping
 	public ResponseEntity<Livro> contatarFornecedor(@RequestBody Livro livro) {
 		return ResponseEntity.status(HttpStatus.OK).body(servicoGerente.contatarFornecedor(livro));

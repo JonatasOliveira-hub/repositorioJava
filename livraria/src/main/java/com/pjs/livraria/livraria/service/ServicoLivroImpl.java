@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.pjs.livraria.livraria.model.Livro;
 import com.pjs.livraria.livraria.repository.RepositorioLivro;
 
+@Service
 public class ServicoLivroImpl implements ServicoLivro {
 
 	@Autowired
