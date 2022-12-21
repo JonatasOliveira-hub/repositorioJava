@@ -1,6 +1,9 @@
 package com.pjs.livraria.livraria.service;
 
+import java.util.List;
+
 import com.pjs.livraria.livraria.model.Cliente;
+import com.pjs.livraria.livraria.model.Fornecedor;
 import com.pjs.livraria.livraria.model.Livro;
 
 /*A classe JpaRepository, tem muitos métodos,
@@ -11,6 +14,8 @@ public interface ServicoGerente {
 
 	Cliente registrarCliente(Cliente cliente);
 
+	List<Cliente> listarCliente();
+	
 	Livro contatarFornecedor(Livro livro);
 
 	String verificarLivro(Livro livro);

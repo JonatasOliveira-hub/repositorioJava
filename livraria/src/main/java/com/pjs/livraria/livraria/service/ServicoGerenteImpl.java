@@ -1,5 +1,6 @@
 package com.pjs.livraria.livraria.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,13 @@ public class ServicoGerenteImpl implements ServicoGerente {
 	@Override
 	public Cliente registrarCliente(Cliente cliente) {
 		return repositorioFuncionario.save(cliente);
+	}
+	
+
+	@Override
+	public List<Cliente> listarCliente() {
+		// TODO Auto-generated method stub
+		return repositorioFuncionario.findAll();
 	}
 
 	@Override

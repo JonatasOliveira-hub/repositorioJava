@@ -1,5 +1,7 @@
 package com.pjs.livraria.livraria.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,19 +23,22 @@ public class ControllerGerente {
 	@Autowired
 	private ServicoGerente servicoGerente;
 
-	@RequestMapping("registrarCliente")
-	@PostMapping
+	@PostMapping("/registrarCliente")
 	public ResponseEntity<Cliente> registrarCliente(@RequestBody Cliente cliente) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(servicoGerente.registrarCliente(cliente));
 	}
-	
-	@RequestMapping("contatarFornecedor")
-	@GetMapping
+
+	@GetMapping("/consultarCliente")
+	public ResponseEntity<List<Cliente>> consultarCliente() {
+		return ResponseEntity.status(HttpStatus.OK).body(servicoGerente.listarCliente());
+	}
+
+	@PostMapping("/contatarFornecedor")
 	public ResponseEntity<Livro> contatarFornecedor(@RequestBody Livro livro) {
 		return ResponseEntity.status(HttpStatus.OK).body(servicoGerente.contatarFornecedor(livro));
 	}
 
-	@GetMapping
+	@GetMapping("/verificarLivro")
 	public ResponseEntity<String> verificarLivro(@RequestBody Livro livro) {
 		return ResponseEntity.status(HttpStatus.OK).body(servicoGerente.verificarLivro(livro));
 	}
