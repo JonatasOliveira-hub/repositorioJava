@@ -1,0 +1,6 @@
+Utilizar as anotações
+
+@PostConstruct para que Beans executem métodos imediatamente após serem construidos.
+@PreDestroy para que Beans executem métodos um pouco antes de terminar o ciclo de vida no container.
+
+Pode utilizar para o mesmo propósito as interfazer InitializingBean e DisposabelBean, respectivamente.
