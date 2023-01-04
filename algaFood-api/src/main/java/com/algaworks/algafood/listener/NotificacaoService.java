@@ -17,6 +17,7 @@ public class NotificacaoService {
 	@Autowired
 	private Notificador notificador;
 	
+	//Método ouvinte de um evento. Vai escutar sempre.
 	@EventListener
 	public void clienteAtivadoListener(ClienteAtivadoEvent evento) {
 	
