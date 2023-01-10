@@ -24,8 +24,19 @@ public class CadastroCozinha {
 	
 	//Anotação para indicar que o método ocorre em uma transação.
 	@Transactional
-	public Cozinha cadastrar(Cozinha cozinha) {
+	public Cozinha salvar(Cozinha cozinha) {
 		//merge retorna a instância persistida do objeto
 		return manager.merge(cozinha);
+	}
+	
+	public Cozinha buscarPorId(Long id) {
+		//merge retorna a instância persistida do objeto
+		return manager.find(Cozinha.class, id);
+	}
+	
+	@Transactional
+	public void remover(Cozinha cozinha) {
+		cozinha = buscarPorId(cozinha.getId());
+		manager.remove(cozinha);
 	}
 }
