@@ -1,4 +1,4 @@
-package com.algaworks.algafood.jpa;
+package com.algaworks.algafood.infrascture.repository;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.algaworks.algafood.domain.model.Cozinha;
 
 @Component
-public class CadastroCozinha {
+public class CozinhaRepositoryImp {
 
 	@PersistenceContext
 	private EntityManager manager;

@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.algaworks.algafood.AlgaFoodApiApplication;
 import com.algaworks.algafood.domain.model.Cozinha;
+import com.algaworks.algafood.domain.repository.CozinhaRepository;
 
 public class ConsultaCozinhaMain {
 
@@ -18,7 +19,7 @@ public class ConsultaCozinhaMain {
 
 		// Recuperou o bean que outrora foi carregado no container
 		// spring.jpa.show-sql=true
-		CadastroCozinha bean = context.getBean(CadastroCozinha.class);
+		CozinhaRepository bean = context.getBean(CozinhaRepository.class);
 
 		Cozinha cozinha = new Cozinha();
 		cozinha.setId(1L);
