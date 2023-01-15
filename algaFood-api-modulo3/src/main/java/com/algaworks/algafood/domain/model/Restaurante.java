@@ -5,7 +5,11 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +20,7 @@ import lombok.Setter;
 public class Restaurante {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String nome;
@@ -23,6 +28,11 @@ public class Restaurante {
 	@Column(name = "taxa_frete")
 	private BigDecimal taxaFrete;
 
+	//Um restaurante tem uma cozinha. Restaurante Japones tem uma cozinha japonesa.
+	@JoinColumn(name="cozinhja_id")
+	@ManyToOne
+	private Cozinha cozinha;
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
