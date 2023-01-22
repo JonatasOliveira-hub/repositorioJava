@@ -10,9 +10,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.algaworks.algafood.domain.model.Cozinha;
+import com.algaworks.algafood.domain.repository.CozinhaRepository;
 
 @Component
-public class CozinhaRepositoryImp {
+public class CozinhaRepositoryImp implements CozinhaRepository {
 
 	@PersistenceContext
 	private EntityManager manager;

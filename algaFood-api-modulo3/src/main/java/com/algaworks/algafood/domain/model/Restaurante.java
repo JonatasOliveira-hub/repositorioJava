@@ -29,7 +29,7 @@ public class Restaurante {
 	private BigDecimal taxaFrete;
 
 	//Um restaurante tem uma cozinha. Restaurante Japones tem uma cozinha japonesa.
-	@JoinColumn(name="cozinhja_id")
+	@JoinColumn(name="cozinha_id")
 	@ManyToOne
 	private Cozinha cozinha;
 	
