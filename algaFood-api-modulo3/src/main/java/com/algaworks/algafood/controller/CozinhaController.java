@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,17 +54,38 @@ public class CozinhaController {
 
 	@PutMapping("/{cozinhaId}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Cozinha> atualizarCozinha(@PathVariable Long cozinhaId,
-			@RequestBody Cozinha cozinha) {
-		//BeanUtils.copyProperties(cozinhaId, cozinha, "id");
-		
+	public ResponseEntity<Cozinha> atualizarCozinha(@PathVariable Long cozinhaId, @RequestBody Cozinha cozinha) {
+		// BeanUtils.copyProperties(cozinhaId, cozinha, "id");
+
 		Cozinha cozinhaAtual = repository.buscarPorId(cozinhaId);
-		cozinhaAtual.setNome(cozinha.getNome());
-		
-		repository.salvar(cozinhaAtual);
-		
-		return ResponseEntity.ok(cozinhaAtual);
-		
+
+		if (cozinhaAtual != null) {
+			cozinhaAtual.setNome(cozinha.getNome());
+
+			repository.salvar(cozinhaAtual);
+
+			return ResponseEntity.ok(cozinhaAtual);
+		}
+
+		return ResponseEntity.notFound().build();
 	}
 
+	@DeleteMapping("/{cozinhaId}")
+	public ResponseEntity<Cozinha> removerCozinha(@PathVariable Long cozinhaId) {
+
+		try {
+			Cozinha cozinhaAtual = repository.buscarPorId(cozinhaId);
+
+			if (cozinhaAtual != null) {
+				repository.remover(cozinhaAtual);
+
+				return ResponseEntity.noContent().build();
+			}
+
+			return ResponseEntity.notFound().build();
+		} catch (DataIntegrityViolationException e) {
+			return ResponseEntity.status(HttpStatus.CONFLICT).build();
+		}
+
+	}
 }
