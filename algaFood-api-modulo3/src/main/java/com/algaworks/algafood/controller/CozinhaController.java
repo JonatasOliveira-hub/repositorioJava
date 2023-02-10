@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.algaworks.algafood.domain.model.Cozinha;
 import com.algaworks.algafood.domain.repository.CozinhaRepository;
+import com.algaworks.algafood.domain.service.CadastroCozinhaService;
 
 import ch.qos.logback.core.joran.util.beans.BeanUtil;
 
@@ -29,6 +30,9 @@ public class CozinhaController {
 
 	@Autowired
 	private CozinhaRepository repository;
+	
+	@Autowired
+	private CadastroCozinhaService cozinhaService;
 
 	@GetMapping
 	public List<Cozinha> listarTodasCozinhas() {
@@ -49,7 +53,7 @@ public class CozinhaController {
 	// @RequestBody - Faz o Bind do objeto recebido para o tipo Java
 	public Cozinha adicionar(@RequestBody Cozinha cozinha) {
 
-		return repository.salvar(cozinha);
+		return cozinhaService.salvar(cozinha);
 	}
 
 	@PutMapping("/{cozinhaId}")
