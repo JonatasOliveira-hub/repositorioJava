@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.algaworks.algafood.domain.exception.EntidadeEmUsoException;
 import com.algaworks.algafood.domain.exception.EntidadeNaoEncontradaException;
+import com.algaworks.algafood.domain.exception.RestauranteNaoEncontradoException;
 import com.algaworks.algafood.domain.model.Cozinha;
 import com.algaworks.algafood.domain.model.Restaurante;
 import com.algaworks.algafood.domain.repository.CozinhaRepository;
@@ -33,7 +34,7 @@ public class CadastroRestauranteService {
 			throw new EntidadeNaoEncontradaException(
 					String.format("Não existe cozinha cadastrada com o código %d.", idCozinha));
 		}
-		
+
 		restaurante.setCozinha(cozinha);
 		return repository.salvar(restaurante);
 	}
@@ -44,6 +45,29 @@ public class CadastroRestauranteService {
 
 	public Restaurante buscarPorId(Long id) {
 		return repository.buscarPorId(id);
+	}
+
+	public Restaurante atualizar(Long restauranteId, Restaurante restaurante) {
+
+		final Restaurante restauranteAtual = buscarPorId(restauranteId);
+		final Long idCozinha = restaurante.getCozinha().getId();
+		final Cozinha cozinha = cozinhaRepository.buscarPorId(idCozinha);
+
+		// Se a cozinha não existir, lance exceção.
+		if (cozinha == null) {
+			throw new EntidadeNaoEncontradaException(
+					String.format("Não existe cozinha cadastrada com o código %d.", idCozinha));
+		}
+		
+		// Se o restaurante não existe, lance exceção
+		if (restauranteAtual == null) {
+			throw new RestauranteNaoEncontradoException(
+					String.format("Não existe restaurante cadastrado com o código %d.", restauranteId));
+		}
+		restauranteAtual.setCozinha(cozinha);
+		restauranteAtual.setNome(restaurante.getNome());
+		restauranteAtual.setTaxaFrete(restaurante.getTaxaFrete());
+		return repository.salvar(restauranteAtual);
 	}
 
 	public void excluir(Restaurante restaurante) {
