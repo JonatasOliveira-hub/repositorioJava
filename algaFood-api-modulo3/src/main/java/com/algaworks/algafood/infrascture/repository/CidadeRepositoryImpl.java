@@ -24,7 +24,7 @@ public class CidadeRepositoryImpl implements CidadeRepository{
     }
     
     @Override
-    public Cidade buscar(Long id) {
+    public Cidade buscarPorId(Long id) {
         return manager.find(Cidade.class, id);
     }
     
@@ -36,8 +36,7 @@ public class CidadeRepositoryImpl implements CidadeRepository{
     
     @Transactional
     @Override
-    public void remover(Cidade cidade) {
-        cidade = buscar(cidade.getId());
-        manager.remove(cidade);
+    public void remover(Long cidadeId) {
+        manager.remove(cidadeId);
     }
 }
