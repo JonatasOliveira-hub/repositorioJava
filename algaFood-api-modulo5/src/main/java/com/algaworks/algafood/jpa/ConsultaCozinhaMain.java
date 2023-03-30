@@ -24,7 +24,7 @@ public class ConsultaCozinhaMain {
 		Cozinha cozinha = new Cozinha();
 		cozinha.setId(1L);
 
-		bean.remover(cozinha.getId());
+		bean.delete(cozinha);
 
 	}
 }

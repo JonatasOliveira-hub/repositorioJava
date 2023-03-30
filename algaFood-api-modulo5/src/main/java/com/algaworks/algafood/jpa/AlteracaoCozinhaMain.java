@@ -25,7 +25,7 @@ public class AlteracaoCozinhaMain {
 		cozinha.setId(1L);
 		cozinha.setNome("Chinesa com peixes.");
 		
-		cozinha = bean.salvar(cozinha);
+		cozinha = bean.save(cozinha);
 		System.out.printf("%d -- %s\n", cozinha.getId(), cozinha.getNome());
 	}
 }

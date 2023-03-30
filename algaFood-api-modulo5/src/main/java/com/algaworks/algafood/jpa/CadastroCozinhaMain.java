@@ -22,7 +22,7 @@ public class CadastroCozinhaMain {
 		//Recuperou o bean que outrora foi carregado no container
 		//spring.jpa.show-sql=true
 		CozinhaRepository bean = context.getBean(CozinhaRepository.class);
-		List<Cozinha> cozinhas = bean.listar();
+		List<Cozinha> cozinhas = bean.findAll();
 		
 		for(Cozinha cozinha : cozinhas) {
 			System.out.println(cozinha.getNome());

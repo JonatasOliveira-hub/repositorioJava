@@ -1,6 +1,7 @@
 package com.algaworks.algafood.domain.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -27,15 +28,15 @@ public class CadastroRestauranteService {
 	public Restaurante salvar(Restaurante restaurante) {
 
 		final Long idCozinha = restaurante.getCozinha().getId();
-		final Cozinha cozinha = cozinhaRepository.buscarPorId(idCozinha);
+		final Optional<Cozinha> cozinha = cozinhaRepository.findById(idCozinha);
 
 		// Se a cozinha não existir, lance exceção.
-		if (cozinha == null) {
+		if (cozinha.isEmpty()) {
 			throw new EntidadeNaoEncontradaException(
 					String.format("Não existe cozinha cadastrada com o código %d.", idCozinha));
 		}
 
-		restaurante.setCozinha(cozinha);
+		restaurante.setCozinha(cozinha.get());
 		return repository.salvar(restaurante);
 	}
 
@@ -51,7 +52,7 @@ public class CadastroRestauranteService {
 
 		final Restaurante restauranteAtual = buscarPorId(restauranteId);
 		final Long idCozinha = restaurante.getCozinha().getId();
-		final Cozinha cozinha = cozinhaRepository.buscarPorId(idCozinha);
+		final Optional<Cozinha> cozinha = cozinhaRepository.findById(idCozinha);
 
 		// Se a cozinha não existir, lance exceção.
 		if (cozinha == null) {
@@ -64,7 +65,7 @@ public class CadastroRestauranteService {
 			throw new RestauranteNaoEncontradoException(
 					String.format("Não existe restaurante cadastrado com o código %d.", restauranteId));
 		}
-		restauranteAtual.setCozinha(cozinha);
+		restauranteAtual.setCozinha(cozinha.get());
 		restauranteAtual.setNome(restaurante.getNome());
 		restauranteAtual.setTaxaFrete(restaurante.getTaxaFrete());
 		return repository.salvar(restauranteAtual);

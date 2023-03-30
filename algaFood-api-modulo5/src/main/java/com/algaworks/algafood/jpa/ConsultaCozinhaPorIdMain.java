@@ -1,5 +1,7 @@
 package com.algaworks.algafood.jpa;
 
+import java.util.Optional;
+
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -21,11 +23,11 @@ public class ConsultaCozinhaPorIdMain {
 		//spring.jpa.show-sql=true
 		CozinhaRepository bean = context.getBean(CozinhaRepository.class);
 		
-		Cozinha cozinha1 = new Cozinha();
-		cozinha1.setNome("Brasileira");
+		Optional<Cozinha> cozinha1 = java.util.Optional.empty(); 
+		cozinha1.get().setNome("Brasileira");
 		
-		cozinha1 = bean.buscarPorId(1L);
+		cozinha1 = bean.findById(1L);
 
-		System.out.printf("%d -- %s\n", cozinha1.getId(), cozinha1.getNome());
+		System.out.printf("%d -- %s\n", cozinha1.get().getId(), cozinha1.get().getNome());
 	}
 }

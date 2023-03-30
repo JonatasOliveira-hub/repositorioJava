@@ -27,8 +27,8 @@ public class ExclusaoCozinhaMain {
 		Cozinha cozinha2 = new Cozinha();
 		cozinha2.setNome("Japonesa");
 		
-		cozinha1 = bean.salvar(cozinha1);
-		cozinha2 = bean.salvar(cozinha2);
+		cozinha1 = bean.save(cozinha1);
+		cozinha2 = bean.save(cozinha2);
 
 		System.out.printf("%d -- %s\n", cozinha1.getId(), cozinha1.getNome());
 		System.out.printf("%d -- %s\n", cozinha2.getId(), cozinha2.getNome());

@@ -1,6 +1,7 @@
 package com.algaworks.algafood.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,7 +39,7 @@ public class CozinhaController {
 	@GetMapping("/{cozinhaId}")
 	public Cozinha buscar(@PathVariable Long cozinhaId) {
 
-		return cozinhaService.listarCozinha(cozinhaId);
+		return cozinhaService.listarCozinha(cozinhaId).get();
 	}
 
 	@PostMapping
@@ -54,14 +55,14 @@ public class CozinhaController {
 	public ResponseEntity<Cozinha> atualizarCozinha(@PathVariable Long cozinhaId, @RequestBody Cozinha cozinha) {
 		// BeanUtils.copyProperties(cozinhaId, cozinha, "id");
 
-		Cozinha cozinhaAtual = cozinhaService.listarCozinha(cozinhaId);
+		Optional<Cozinha> cozinhaAtual = cozinhaService.listarCozinha(cozinhaId);
 
-		if (cozinhaAtual != null) {
-			cozinhaAtual.setNome(cozinha.getNome());
+		if (cozinhaAtual.isPresent()) {
+			cozinhaAtual.get().setNome(cozinha.getNome());
 
-			cozinhaService.salvar(cozinhaAtual);
+			cozinhaService.salvar(cozinhaAtual.get());
 
-			return ResponseEntity.ok(cozinhaAtual);
+			return ResponseEntity.ok(cozinhaAtual.get());
 		}
 
 		return ResponseEntity.notFound().build();

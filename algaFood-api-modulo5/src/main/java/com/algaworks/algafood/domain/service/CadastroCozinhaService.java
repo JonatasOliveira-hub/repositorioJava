@@ -1,6 +1,7 @@
 package com.algaworks.algafood.domain.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -20,13 +21,13 @@ public class CadastroCozinhaService {
 
 	public Cozinha salvar(Cozinha cozinha) {
 
-		return repository.salvar(cozinha);
+		return repository.save(cozinha);
 	}
 
 	public void excluir(Long cozinhaId) {
 
 		try {
-			repository.remover(cozinhaId);
+			repository.deleteById(cozinhaId);
 		} catch (EmptyResultDataAccessException e) {
 			throw new EntidadeNaoEncontradaException(
 					String.format("Não existe um cadastro de cozinha com o código %d.", cozinhaId));
@@ -38,12 +39,12 @@ public class CadastroCozinhaService {
 
 	public List<Cozinha> listarCozinhas() {
 
-		return repository.listar();
+		return repository.findAll();
 	}
 
-	public Cozinha listarCozinha(Long idCozinha) {
+	public Optional<Cozinha> listarCozinha(Long idCozinha) {
 
-		return repository.buscarPorId(idCozinha);
+		return repository.findById(idCozinha);
 	}
 
 }
