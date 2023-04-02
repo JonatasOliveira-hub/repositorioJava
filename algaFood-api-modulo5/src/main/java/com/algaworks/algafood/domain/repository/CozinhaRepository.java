@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.algaworks.algafood.domain.model.Cozinha;
 
 @Repository
-public interface CozinhaRepository extends JpaRepository<Cozinha, Long>{
-
-	//List<Cozinha> listar();
+public interface CozinhaRepository extends JpaRepository<Cozinha, Long> {
 
 }
